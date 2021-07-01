@@ -12,6 +12,8 @@ class Dog
     #attr writer gives us just writer methods
     attr_writer :age
     
+
+    @@all = []
     #writer
     # def name=(name)
     #   @name = name
@@ -24,13 +26,18 @@ class Dog
 
     # initialize an instance method that is automatically called on the instance of a dog created by Dog.new
     # we must pass any arguments that #initialize requires to Dog.new
-    def initialize(breed, gender, name = nil)  le/ hook 
+    def initialize(breed, gender, name = nil)  #lifecycle method/hook 
         @breed = breed
         @gender = gender
         # if name
             @name = name
         # end
         puts "a new dog"
+        @@all << self
+    end
+
+    def self.all
+        @@all
     end
 
     def beg # instance method
